@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <title>Helseflora</title>
+
+  <style>
+    .header {
+        color: #819258;
+        background-color: #323A35; /*Picked this color from the original PDF.*/
+        font-weight: bold;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding: 16px;
+    }
+
+    .txtSearch { 
+        position: absolute;
+        top: 16px; /*Header has padding of 16px, so align...*/
+        right: 16px; /*Header has padding of 16px, so align...*/
+    }
+
+    /*Style for the column which will hold all of the rows.*/
+    .plantCategoriesColumn {
+      width: fit-content;
+    }
+
+    /*Style for each row */
+    .plantCategoriesRow {
+      background-color: #323A35; /*Picked this color from the original PDF.*/
+      color: #F0F8DD;
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 16px;
+      border-bottom: 1px solid #ccc;
+      border-color: #404E3B;
+    }
+
+    body {
+        background-color: #323A35;
+    }
+
+    /*Change background color for each row EXCEPT the first child.*/
+    .plantCategoriesRow:not(:first-child):hover { 
+        background-color: #526358;
+        cursor: pointer;
+    }
+
+    /*First child should have a special text color.*/
+    .plantCategoriesRow:first-child {
+        color: #506055;
+    }
+  </style>
+</head>
+
+<body>
+    <div class="header">
+        Helseflora
+    </div>
+
+    <input type="text" class="txtSearch"/>
+
+    <div class="plantCategoriesColumn">
+        <div class="plantCategoriesRow">
+            <h2>Kategorier</h2>
+        </div>
+    </div>
+
+    <!--Order is critically important. The controller depends on the other two, so
+        has to be imported last.-->
+    <script src="MainModel.js" type="module"></script>
+    <script src="MainView.js" type="module"></script>
+    <script src="MainController.js" type="module"></script>
+</body>
+</html>
