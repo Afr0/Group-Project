@@ -15,13 +15,13 @@ class MainController {
         this.#View = MainView;
     }
 
-    initialize() {
+    initialize(url) {
         let cachedData = this.#Model.getCachedData();
 
         if(cachedData) { //getCachedData potentially returns null SO CHECK THE ¤%/& RESULT!
             this.#View.populatePlantCategories(cachedData);
         } else {
-            this.#Model.fetchData().then(data => {
+            this.#Model.fetchData(url).then(data => {
                 this.#View.populatePlantCategories(data);
             }).catch(error => {
                 //TODO: Display error to user with a messagebox...
@@ -37,5 +37,5 @@ document.addEventListener("DOMContentLoaded", function() {
     let appModel = new MainModel();
     let appView = new MainView();
     let appController = new MainController(appModel, appView);
-    appController.initialize();
+    appController.initialize("https://helseflora.herokuapp.com/webshop/categories?key=CKXDXF73");
 });
