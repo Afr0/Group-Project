@@ -4,16 +4,9 @@
     <!--Code by Ingrid to make sure we display correctly on different devices. Nice!-->
   <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Helseflora</title>
+  <link rel="stylesheet" href="./Style.css">
 
   <style>
-    .header {
-        color: #819258;
-        background-color: #323A35; /*Picked this color from the original PDF.*/
-        font-weight: bold;
-        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        padding: 16px;
-    }
-
     .txtSearch { 
         position: absolute;
         top: 16px; /*Header has padding of 16px, so align...*/
@@ -41,10 +34,6 @@
       border-color: #404E3B;
     }
 
-    body {
-        background-color: #323A35;
-    }
-
     /*Change background color for each row EXCEPT the first child.*/
     .plantCategoriesRow:not(:first-child):hover { 
         background-color: #526358;
@@ -60,7 +49,7 @@
 
 <body>
     <div class="header">
-        Helseflora
+        <h1>Helseflora</h1>
     </div>
 
     <!--Placeholder from Ingrid. Nice!-->

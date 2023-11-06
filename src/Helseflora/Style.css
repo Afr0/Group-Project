@@ -1,0 +1,17 @@
+.header {
+    color: #819258;
+    background-color: #323A35; /*Picked this color from the original PDF.*/
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 16px;
+}
+
+.backButton {
+    background-color: #77AB18;
+    color: #E7F5D5;
+    border-radius: 50%;
+}
+
+body {
+    background-color: #323A35;
+}
