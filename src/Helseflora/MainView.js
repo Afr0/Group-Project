@@ -8,9 +8,9 @@ export default class MainView {
         document.getElementsByClassName("btnSearch")[0].addEventListener("click", function() {
             let inputValue = document.getElementById("txtSearch").value;
 
-            if (/^[a-æøåA-ÆØÅ0-9\s]+$/i.test(inputValue) && inputValue !== "") { //Sanity check
-                localStorage.setItem("searchword", inputValue);
-                window.location.href = "side2.html";
+            //\s = whitespace.
+            if (/^[a-æøåA-ÆØÅ0-9\s]+$/i.test(inputValue) && inputValue !== "") { //Sanity check with regex
+                window.location.href = "./plants.html?search=" + inputValue;
             }
             else
                 throw Error("Invalid input detected!"); //TODO: handle error...
