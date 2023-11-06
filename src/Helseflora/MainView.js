@@ -29,8 +29,9 @@ export default class MainView {
                 //(Man in The Middle Attack), so use textContent instead of innerHTML.
                 row.textContent = rowData[i].name;
                 row.addEventListener("click", function() {
-                    window.location.href = "http://127.0.0.1:5500/Helseflora/plants.html?category=" + 
-                    encodeURIComponent(rowData[i].name.toLowerCase());
+                    //Using ./ means the browser will look plants.html in the same directory.
+                    window.location.href = "./plants.html?category=" + 
+                    encodeURIComponent(rowData[i].id);
                 });
 
                 this.#columnClass.appendChild(row);
