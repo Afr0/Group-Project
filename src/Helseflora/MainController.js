@@ -1,4 +1,4 @@
-import MainModel from "./MainModel.js";
+import Model from "./Model.js";
 import MainView from "./MainView.js";
 
 /*==============================================================================
@@ -34,7 +34,7 @@ class MainController {
 //Ensure the Controller is initialized when the webpage has been
 //loaded.
 document.addEventListener("DOMContentLoaded", function() {
-    let appModel = new MainModel();
+    let appModel = new Model(Model.MAIN_CACHE_NAME);
     let appView = new MainView();
     let appController = new MainController(appModel, appView);
     appController.initialize("https://helseflora.herokuapp.com/webshop/categories?key=CKXDXF73");
