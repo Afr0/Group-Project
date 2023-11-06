@@ -6,7 +6,7 @@ export default class MainView {
 
         //Adapted from Ingrid's code.
         document.getElementsByClassName("btnSearch")[0].addEventListener("click", function() {
-            let inputValue = document.getElementById("txtSearch").value;
+            let inputValue = document.getElementsByClassName("txtSearch")[0].value;
 
             //\s = whitespace.
             if (/^[a-æøåA-ÆØÅ0-9\s]+$/i.test(inputValue) && inputValue !== "") { //Sanity check with regex
@@ -18,8 +18,6 @@ export default class MainView {
     }
 
     populatePlantCategories(rowData) {
-        console.log("MainView.populatePlantCategories():");
-        console.log(rowData);
         for(let i = 0; i < rowData.length; i++)  {
             //I'm sure there's a more elegant solution to this, but this works.
             if(rowData[i].name !== "Not categorized") {
