@@ -1,11 +1,12 @@
 import Model from "./Model.js";
 import MainView from "./MainView.js";
 
-/*==============================================================================
-/*A controller acts as a bridge between the Model and the View in the MVC pattern.
-/*Using a Controller ensures that a Model is never aware of the View and vice
-/*versa, ensuring separation of concerns.
-*==============================================================================*/
+/**
+ * Controller for the Main view.
+ * A controller acts as a bridge between the Model and the View in the MVC pattern.
+ * Using a Controller ensures that a Model is never aware of the View and vice
+ * versa, ensuring separation of concerns.
+ */
 class MainController {
     #Model;
     #View;
@@ -15,6 +16,10 @@ class MainController {
         this.#View = MainView;
     }
 
+    /**
+     * Initializes this MainController.
+     * @param {*} url The URL to fetch data from.
+     */
     initialize(url) {
         let cachedData = this.#Model.getCachedData();
 
