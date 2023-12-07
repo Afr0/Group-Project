@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Helseflora</title>
+  <link rel="stylesheet" href="./Style.css">
+</head>
+
+<body>
+    <div class="header">
+        <button class="backButton"><-</button><h1>Logg inn</h1>
+    </div>
+    
+    <div class="login">
+        <label for="txtUsername">Brukernavn:</label>
+        <input id="txtUsername" type="text" placeholder="Brukernavn" />
+        <label for="txtPassword">Passord:</label>
+        <input id="txtPassword" type="password" placeholder="Passord" />
+        <button id="btnLogin" class="button">Logg inn</button>
+    </div>
+
+    <!--Order is critically important. The controller depends on the other two, so
+        has to be imported last.-->
+    <script src="Model.js" type="module"></script>
+    <script src="./Views/LoginView.js" type="module"></script>
+    <script src="./Controllers/LoginController.js" type="module"></script>
+</body>
+</html>

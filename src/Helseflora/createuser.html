@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="./Style.css">
+</head>
+<body>
+  <div class="header">
+    <button class="backButton"><-</button><h1>Opprett ny bruker</h1>
+  </div>
+  
+  <form id="userForm" class="userForm" enctype="multipart/form-data" method="post">
+    <label for="txtUsername">Brukernavn *</label>
+    <input id="txtUsername" name="username" type="text" /></br>
+    <label for="txtPassword">Passord *</label>
+    <input id="txtPassword" name="password" type="password" /></br>
+
+    <label for="txtFullname">Fullt navn *</label>
+    <input id="txtFullname" name="fullname" required="true" type="text" /></br>
+    <label for="txtStreet">Gatenavn *</label>
+    <input id="txtStreet" name="street" required="true" type="text"/></br>
+    <label for="txtCity">By *</label>
+    <input id="txtCity" name="city" required="true" type="text" /></br>
+    <label for="txtZip">Postkode *</label>
+    <input id="txtZip" name="zipcode" required="true" type="text" /></br>
+    <label for="txtCountry">Land *</label>
+    <input id="txtCountry" name="country" required="true" type="text" /></br>
+
+    <button id="btnRegister" class="button" type="submit">Opprett ny bruker</button>
+    <img id="userImg" src=""/>
+  </form>
+
+  <div class="uploadImage">
+    <label for="image">Bilde</label>
+    <button id="btnSelectFile" class="button">Velg et bilde</button>
+    <input type="file" id="image" style="display: none;" accept=".png, .jpg" />
+    <button id="btnUploadImage" class="button btnUploadImage">Last opp bilde</button>
+  </div>
+
+  <script>
+    const msg = document.getElementById('msg');
+    const ordre = document.getElementById('ordre');
+    const imageInput = document.getElementById("image");
+    const uploadImageBtn = document.getElementById("uploadImage");
+    const newUsername = document.getElementById("newUsername");
+    const newPassword = document.getElementById("newPassword");
+    const registerBtn = document.getElementById("register");
+  </script>
+
+  <!--Order is critically important. The controller depends on the other two, so
+      has to be imported last.-->
+  <script src="Model.js" type="module"></script>
+  <script src="./Views/CreateUserView.js" type="module"></script>
+  <script src="./Controllers/CreateUserController.js" type="module"></script>
+</body>
+</html>
+

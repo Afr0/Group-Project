@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Helseflora</title>
+  <link rel="stylesheet" href="./Style.css">
+
+  <style>
+    .userForm {
+        display: flex;
+        flex-direction: column;
+        max-width: 300px;
+        margin: 16px;
+        padding: 10px;
+    }
+
+    .form-container label, .form-container input {
+        margin-bottom: 5px;
+    }
+
+    .form-container label {
+        margin-top: 5px;
+    }
+
+    .form-container input, .form-container button {
+        padding: 5px;
+    }
+
+    /*Mobile devices.*/
+    @media (max-width: 414px) {
+        .header {
+            max-width: 80%;
+        }
+
+        .imgUser {
+            max-height: 35%;
+            max-width: 35%;
+        }
+    }
+  </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1><button class="backButton"><-</button>Brukerinnstillinger</h1>
+    </div>
+
+    <img id="imgUser" class="imgUser"/>
+
+    <form id="userForm" class="userForm" enctype="multipart/form-data" method="put">
+        <label for="txtUsername">Brukernavn: </label>
+        <input type="text" name="username" id="txtUsername"> </br>
+        <label for="txtPassword">Passord: </label>
+        <input type="text" name="password" id="txtPassword"> </br></br>
+
+        <label for="txtFullname">Navn: </label>
+        <input id="txtFullname" type="text" name="fullname"> </br>
+        <label for="txtStreet">Gatenavn: </label>
+        <input type="text" name="street" id="txtStreet"> </br>
+        <label for="txtCity">By: </label>
+        <input id="txtCity" name="city" required="true" type="text"/></br>
+        <label for="txtZip">Postkode: </label>
+        <input id="txtZip" name="zipcode" required="true" type="text"/></br>
+        <label for="txtCountry">Land: </label>
+        <input id="txtCountry" name="country" required="true" type="text" /></br>
+        <button class="button backButton" hidden="true" id="btnUpdate">Oppdater bruker</button>
+        <button class="button backButton" id="btnLogout">Logg av</button>
+        <button class="button backButton" id="btnDelete">Slett bruker</button>
+    </div>
+
+    <!--Order is critically important. The controller depends on the other two, so
+        has to be imported last.-->
+    <script src="Model.js" type="module"></script>
+    <script src="./Views/UserSettingsView.js" type="module"></script>
+    <script src="./Controllers/UserSettingsController.js" type="module"></script>
+</body>
+</html>
