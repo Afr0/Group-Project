@@ -1,3 +1,5 @@
+/*Cross-site styling for Helseflora.*/
+
 .header {
     color: #819258;
     background-color: #323A35; /*Picked this color from the original PDF.*/
@@ -12,6 +14,59 @@
     border-radius: 50%;
 }
 
+/*Image for user that is currently logged in.*/
+.imgUser {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+.imgUser:hover {
+    cursor: pointer; /*Indicate that the image is clickable.*/
+}
+
+/* Generic button style, same as for backButton. */
+.button {
+    background-color: #77AB18;
+    color: #E7F5D5;
+    border-radius: 50%;
+}
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #143429;
+    color: #E7F5D5;
+    padding: 16px;
+    border-radius: 8px;
+    /*Make sure toasts appear on top of all other elements by giving them a high z-index.*/
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    opacity: 0;
+    /*.5 secs fadein, .5 secs fadeout, 3.5 secs for full animation. */
+    animation: fadein 0.5s, fadeout 0.5s 3.5s;
+    
+    /*Got this fix from, of all things, a Pixar programming tutorial: 
+    https://www.youtube.com/watch?v=G9207EJySaA&pp=ygUacGl4YXIgcHJvZ3JhbW1pbmcgdHV0b3JpYWw%3D*/
+    animation-fill-mode: forwards;
+}
+
+/*Fade in from 0px with 0 opacity to 20px with full opacity. */
+@keyframes fadein {
+    from { bottom: 0; opacity: 0; }
+    to { bottom: 20px; opacity: 1; }
+}
+
+/*Fade out from whence it came, essentially in reverse. */
+@keyframes fadeout {
+    from { bottom: 20px; opacity: 1; }
+    to { bottom: 0; opacity: 0; }
+}
+
 body {
     background-color: #323A35;
+    color: #E7F5D5;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100%;
 }
