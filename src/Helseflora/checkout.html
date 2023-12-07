@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helseflora - Checkout</title>
+
+    <link rel="stylesheet" href="./Style.css">
+
+    <style>
+        .formClass {
+            background-color: #323A35; /*Picked this color from the original PDF.*/
+            color: #F0F8DD;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <button class="backButton">Hjem</button> <h1>Checkout</h1>
+    </div>
+    <form class = "formClass">
+        <label for="name">Navn:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">E-post</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="address">Addresse:</label>
+        <textarea id="address" name="address" required></textarea><br><br>
+
+        <label for="payment-method">Betalingsmetode:</label>
+        <select id="payment-method" name="payment-method" required>
+            <option value="credit-card">Kredittkort</option>
+            <option value="paypal">PayPal</option>
+        </select><br><br>
+
+        <label for="shipping-method">Fraktmetode:</label>
+        <select class="shipping-method" name="shipping-method" required></select>
+
+        <button class="backButton" type="submit">Bestill</button></br>
+    </form>
+
+    <!--Order is critically important. The controller depends on the other two, so
+    has to be imported last.-->
+    <script src="Model.js" type="module"></script>
+    <script src="./Views/CheckoutView.js" type="module"></script>
+    <script src="./Controllers/CheckoutController.js" type="module"></script>
+</body>
+</html>
