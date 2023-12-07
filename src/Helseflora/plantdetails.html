@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <!--Code by Ingrid to make sure we display correctly on different devices. Nice!-->
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Helseflora</title>
+
+  <link rel="stylesheet" href="./Style.css">
+
+  <style>
+    /*Style for the column which will hold all of the rows.*/
+    .column {
+      width: 100%;
+    }
+
+    /*Style for each row */
+    .row {
+      background-color: #323A35; /*Picked this color from the original PDF.*/
+      color: #F0F8DD;
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 16px;
+      border-bottom: 1px solid #ccc;
+      border-color: #404E3B;
+    }
+
+    /*Mobile devices.*/
+    @media (max-width: 414px) {
+      .row {
+        padding: 5px;
+        font-size: 12px;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+      }
+    }
+
+    /*First child should have a special text color.*/
+    .row:first-child {
+        color: #506055;
+    }
+
+    /*.btnCart {
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+    }*/
+
+    .star-rating .star {
+      cursor: pointer;
+      font-size: 1.5em;
+      color: gold;
+    }
+  </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Helseflora</h1>
+    </div>
+
+    <div class="header">
+        <button class="backButton"><-</button> Helseflora
+    </div>
+
+    <button id="btnCart" class="button btnCart">Handlekurv</button>
+
+    <div class="column">
+    </div>
+
+    <img id="imgUser" class="imgUser"/>
+
+    <!--Order is critically important. The controller depends on the other two, so
+        has to be imported last.-->
+    <script src="Model.js" type="module"></script>
+    <script src="DetailModel.js" type="module"></script>
+    <script src="./Views/DetailView.js" type="module"></script>
+    <script src="./Controllers/DetailController.js" type="module"></script>
+</body>
+</html>

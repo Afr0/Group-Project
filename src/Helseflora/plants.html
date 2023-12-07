@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <!--Code by Ingrid to make sure we display correctly on different devices. Nice!-->
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Helseflora</title>
+
+  <link rel="stylesheet" href="./Style.css">
+
+  <style>
+    /*Style for the column which will hold all of the rows.*/
+    .column {
+      width: fit-content;
+    }
+
+    /*Style for each row.*/
+    .row {
+      background-color: #323A35; /*Picked this color from the original PDF.*/
+      color: #F0F8DD;
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 16px;
+      border-bottom: 1px solid #ccc;
+      border-color: #404E3B;
+    }
+
+    /*Images are floated to the left, so we need a clearfix to contain the images
+    within their containers without the parent collapsing (on mobile devices):
+    https://www.w3schools.com/howto/howto_css_clearfix.asp*/
+    .row::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+
+    /*Mobile devices.*/
+    @media (max-width: 414px) {
+      .column {
+        width: 100%;
+      }
+      .row {
+        padding: 5px;
+        font-size: 12px;
+        overflow-wrap: break-word;
+      }
+      .leftAlignedImage {
+        max-width: 15%;
+        height: auto;
+        display: block;
+      }
+    }
+
+    /*Apply box-sizing to all elements by using the * universal selector.*/
+    *, *:before, *:after {
+      box-sizing: border-box;
+    }
+
+    /*Change background color for each row EXCEPT the first child.*/
+    .row:not(:first-child):hover {
+        background-color: #526358;
+        cursor: pointer;
+    }
+
+    /*First child should have a special text color.*/
+    .row:first-child {
+        color: #506055;
+    }
+
+    /*Equivalent to <img align=left>*/
+    .leftAlignedImage {
+        float: left;
+    }
+
+    /*Style for the container that holds the image returned from the server for
+    search results.*/
+    .image-container {
+        position: relative;
+        display: flex; /*Allows for flexible alignment of items, even when their sizes are unknown or dynamic.*/
+        align-items: center;
+        justify-content: center;
+        width: 300px;
+        padding-left: 25px;
+        padding-top: 25px;
+        padding-right: 25px;
+        background-color: #323A35;
+        margin: auto;
+    }
+  </style>
+</head>
+
+<body>
+    <div class="header">
+        <button class="backButton"><-</button> <h1>Helseflora</h1>
+    </div>
+
+    <div class="column">
+    </div>
+
+    <img id="imgUser" class="imgUser"/>
+
+    <!--Order is critically important. The controllers depends on the others, so 
+        have to be imported last.-->
+    <script src="Model.js" type="module"></script>
+    <script src="./Views/CategoryView.js" type="module"></script>
+    <script src="./Controllers/CategoryController.js" type="module"></script>
+    <script src="./Controllers/SearchController.js" type="module"></script>
+</body>
+</html>
