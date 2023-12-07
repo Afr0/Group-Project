@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-    <!--Code by Ingrid to make sure we display correctly on different devices. Nice!-->
   <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Helseflora</title>
   <link rel="stylesheet" href="./Style.css">
@@ -9,14 +8,26 @@
   <style>
     .txtSearch { 
         position: absolute;
-        top: 16px; /*Header has padding of 16px, so align...*/
-        right: 16px; /*Header has padding of 16px, so align...*/
+        bottom: 16px; /*Header has padding of 16px, so align...*/
+        left: 16px; /*Header has padding of 16px, so align...*/
     }
 
     .btnSearch {
         position: absolute;
-        top: 16px; /*Header has padding of 16px, so align...*/
+        bottom: 16px;
+        left: 145px; /*The end of the search textbox.*/
+    }
+
+    .btnLogin {
+        position: absolute;
+        bottom: 16px; /*Header has padding of 16px, so align...*/
         right: 16px; /*Header has padding of 16px, so align...*/
+    }
+
+    .btnCreateUser {
+        position: absolute;
+        bottom: 16px;
+        right: 85px;
     }
 
     /*Style for the column which will hold all of the rows.*/
@@ -54,7 +65,10 @@
 
     <!--Placeholder from Ingrid. Nice!-->
     <input type="text" class="txtSearch" placeholder="Søk etter planter"/>
-    <button class="btnSearch">Søk</button>
+    <button id="btnSearch" class="button btnSearch">Søk</button>
+
+    <button id="btnLogin" class="button btnLogin">Logg inn</button>
+    <button id="btnCreateUser" class="button btnCreateUser">Ny bruker</button>
 
     <div class="plantCategoriesColumn">
         <div class="plantCategoriesRow">
@@ -62,10 +76,12 @@
         </div>
     </div>
 
+    <img id="imgUser" class="imgUser"/>
+
     <!--Order is critically important. The controller depends on the other two, so
         has to be imported last.-->
     <script src="Model.js" type="module"></script>
-    <script src="MainView.js" type="module"></script>
-    <script src="MainController.js" type="module"></script>
+    <script src="./Views/MainView.js" type="module"></script>
+    <script src="./Controllers/MainController.js" type="module"></script>
 </body>
 </html>
